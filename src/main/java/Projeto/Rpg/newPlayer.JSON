@@ -1,0 +1,75 @@
+{
+  "nomes": [
+    "Shadowblade",
+    "Firestorm",
+    "Iceheart",
+    "Nightshade",
+    "Stormbringer",
+    "Swiftwind",
+    "Darkflame",
+    "Moonshadow",
+    "Soulreaper",
+    "Dreadlord"
+  ],
+  "classes": [
+    "Guerreiro",
+    "Arqueiro",
+    "Mago",
+    "Ladino",
+    "Cavaleiro",
+    "Clérigo",
+    "Necromante",
+    "Paladino",
+    "Bárbaro",
+    "Druida"
+  ],
+  "rank": [
+    "Ferro",
+    "Prata",
+    "Ouro",
+    "Esmeralda",
+    "Diamante"
+  ],
+  "quests": [
+    {
+      "nome": "Derrote o Dragão de Fogo",
+      "nivel": 10
+    },
+    {
+      "nome": "Recupere o Cálice Sagrado",
+      "nivel": 17
+    },
+    {
+      "nome": "Proteja a Vila dos Bárbaros",
+      "nivel": 23
+    },
+    {
+      "nome": "Encontre o Tesouro Perdido",
+      "nivel": 30
+    },
+    {
+      "nome": "Liberte o Reino do Domínio das Trevas",
+      "nivel": 37
+    },
+    {
+      "nome": "Ajude os Elfos a Restaurar a Árvore da Vida",
+      "nivel": 44
+    },
+    {
+      "nome": "Investigue a Maldição da Floresta Negra",
+      "nivel": 51
+    },
+    {
+      "nome": "Descubra os Segredos da Antiga Ruína",
+      "nivel": 58
+    },
+    {
+      "nome": "Traga a Paz entre os Reinos Rivais",
+      "nivel": 65
+    },
+    {
+      "nome": "Confronte o Senhor das Sombras",
+      "nivel": 70
+    }
+  ]
+}
