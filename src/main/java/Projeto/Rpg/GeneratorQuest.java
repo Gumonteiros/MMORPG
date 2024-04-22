@@ -8,10 +8,12 @@ public class GeneratorQuest {
     private String[] listaClasse;
     private String[] listaRank;
     private Quest[] listaQuests;
+    private LocationMap[] listaLocations;
+
 
     public GeneratorQuest() {
         loadDataFromJson();
-
+        loadLocationDataFromApi();
     }
 
     public Player generatePlayer() {
@@ -32,11 +34,17 @@ public class GeneratorQuest {
         Quest quest = pickRandomQuest();
         if (player.getNivel() >= quest.getNivel()) {
             player.setQuest(quest.getNome());
+            LocationMap randomLocation = pickRandomLocation();
             System.out.println("O jogador " + player.getNome() + ", da classe " + player.getClasse() + ", nível " + player.getNivel() + ", rank " + player.getRank() + ", resgatou com sucesso a quest de Nível: "+quest.getNivel() + " " + quest.getNome());
+            System.out.println("Sua Quest está localizada em " + randomLocation.getName() + " Na zona de ID " + randomLocation.getZoneCount());
         } else {
             System.out.println("Erro: O jogador " + player.getNome() + ", da classe " + player.getClasse() + ", nível " + player.getNivel() + ", rank " + player.getRank() + " não pode receber a quest '" + quest.getNome() + ", Nível da quest: " + quest.getNivel()+ "'! Nível abaixo do recomendado.");
-            // Evita a impressão da mensagem de sucesso
         }
+    }
+
+    private LocationMap pickRandomLocation() {
+        int randomIndex = (int) (Math.random() * listaLocations.length);
+        return listaLocations[randomIndex];
     }
 
     public Quest pickRandomQuest() {
@@ -47,6 +55,19 @@ public class GeneratorQuest {
     public String listPicker(String[] picker) {
         int randomIndex = (int) Math.floor(Math.random() * picker.length);
         return picker[randomIndex];
+    }
+
+    private void loadLocationDataFromApi() {
+        try {
+            Gson gson = new Gson();
+            FileReader reader = new FileReader("C:\\Users\\Usuario\\Documents\\MMORPG\\src\\main\\java\\Api\\locations.json");
+            LocationMap[] locations = gson.fromJson(reader, LocationMap[].class);
+            this.listaLocations = locations;
+            reader.close();
+        } catch (Exception e) {
+            System.out.println("Erro ao carregar dados de localização da API.");
+            e.printStackTrace();
+        }
     }
 
     private void loadDataFromJson() {
